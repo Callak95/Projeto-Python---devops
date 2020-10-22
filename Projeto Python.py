@@ -1,6 +1,7 @@
 import os
 import shutil
 import datetime
+import time
 
 ## dentro do diretorioc > publicacoes > {criar pasta (data atual ## 2020-10-21)}dentro dessa pasta > {criar pasta (old)}dentro dessa pasta > {criar pasta (new)}
 
@@ -8,20 +9,33 @@ import datetime
 
 # TENTATIVA ( 1 )
 
-# dir = 'C:/publicacoes/2020-10-21/old'       
-#os.makedirs(dir)
-#dir = 'C:/publicacoes/2020-10-21/new'       
-#os.makedirs(dir)
+dir = 'C:/publicacoes/2020-10-21/old'       
+os.makedirs(dir)
+dir = 'C:/publicacoes/2020-10-21/new'       
+os.makedirs(dir)
 
-# TENTATIVA ( 2 )  - Atual!
+# TENTATIVA ( 2 )- 
 
-datestring = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S");
-print (datestring);
-os.mkdir(datestring);
+#datestring = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+#print (datestring)
+#os.mkdir(datestring)
 
+#from datetime import datetime
+
+#today = datetime.now()
+ 
+#if today.hour < 12:
+   # h = "00"
+#else:
+   # h = "12"
+
+#os.makedirs(today.strftime('%Y-%m-%d'))
+#os.chdir('C:/publicacoes/',today,'/new')
+
+          
 ## copiar war area de trabalho > dentro da pasta {deploy}copiar arqui > {## online.war || dentro dessa pasta > {criar pasta (new)}
 
-##Transferencia de arquivos
+## Transferencia de arquivos
 
 src = 'C:/Users/lucas/OneDrive/Área de Trabalho/deploy'
 dst = 'C:/publicacoes/2020-10-21/new'
@@ -29,12 +43,14 @@ dst = 'C:/publicacoes/2020-10-21/new'
 shutil.copyfile(src=src + '/online.war', dst=dst + '/online.war')
 
 
-
-
-
-
 ## fazer backup do war antigo dentro do diretorio > c > servidores > webapps >copiar o arquivo {online.war} || dentro dessa pasta > {criar pasta (old)}
 
+## Backup do Servidor -> Pasta Old.
+
+src = 'C:/servidores/webapps/'
+dst = 'C:/publicacoes/2020-10-21/old'
+
+shutil.copyfile(src=src + '/online.war', dst=dst + '/online.war')
 
 
 
